@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.32804.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendingAnEmailWithoutDI", "SendingAnEmailWithoutDI\SendingAnEmailWithoutDI.csproj", "{CEBC4EEA-C1C4-427E-AF81-E14317253577}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEBC4EEA-C1C4-427E-AF81-E14317253577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBC4EEA-C1C4-427E-AF81-E14317253577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBC4EEA-C1C4-427E-AF81-E14317253577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBC4EEA-C1C4-427E-AF81-E14317253577}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {142F8AA6-9E61-4979-A6B9-54A42877DC42}
+	EndGlobalSection
+EndGlobal
