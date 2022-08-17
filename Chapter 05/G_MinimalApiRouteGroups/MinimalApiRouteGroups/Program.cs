@@ -6,11 +6,11 @@ WebApplication app = builder.Build();
 
 var _fruit = new ConcurrentDictionary<string, Fruit>();
 
-GroupRouteBuilder fruitApi = app.MapGroup("/fruit");
+RouteGroupBuilder fruitApi = app.MapGroup("/fruit");
 
 fruitApi.MapGet("/", () => _fruit);
 
-GroupRouteBuilder fruitApiWithValidation = fruitApi.MapGroup("/");
+RouteGroupBuilder fruitApiWithValidation = fruitApi.MapGroup("/");
     //.AddFilter(ValidationHelper.ValidateIdFactory);
 
 fruitApiWithValidation.MapGet("/{id}", (string id) =>
@@ -42,8 +42,8 @@ app.Run();
 record Fruit(string Name, int stock);
 class ValidationHelper
 {
-    internal static RouteHandlerFilterDelegate ValidateIdFactory(
-        RouteHandlerContext context, RouteHandlerFilterDelegate next)
+    internal static EndpointFilterDelegate ValidateIdFactory(
+        EndpointFilterFactoryContext context, EndpointFilterDelegate next)
     {
         ParameterInfo[] parameters = context.MethodInfo.GetParameters();
         int? idPosition = null;

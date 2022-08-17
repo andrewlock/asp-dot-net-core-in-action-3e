@@ -29,7 +29,7 @@ app.MapGet("/fruit", () => _fruit);
 //    _fruit.TryGetValue(id, out var fruit)
 //        ? TypedResults.Ok(fruit)
 //        : Results.Problem(statusCode: 404))
-//    .AddFilter(async (context, next) =>
+//    .AddEndpointFilter(async (context, next) =>
 //    {
 //        var id = context.GetArgument<string>(0);
 //        if (string.IsNullOrEmpty(id) || !id.StartsWith('f'))
@@ -47,8 +47,8 @@ app.MapGet("/fruit", () => _fruit);
 //    _fruit.TryGetValue(id, out var fruit)
 //        ? TypedResults.Ok(fruit)
 //        : Results.Problem(statusCode: 404))
-//    .AddFilter(ValidationHelper.ValidateId)
-//    .AddFilter(async (context, next) =>
+//    .AddEndpointFilter(ValidationHelper.ValidateId)
+//    .AddEndpointFilter(async (context, next) =>
 //    {
 //        app.Logger.LogInformation("Executing filter...");
 //        var result = await next(context);
@@ -62,14 +62,14 @@ app.MapGet("/fruit", () => _fruit);
 //    _fruit.TryGetValue(id, out var fruit)
 //        ? TypedResults.Ok(fruit)
 //        : Results.Problem(statusCode: 404))
-//    .AddFilter(ValidationHelper.ValidateIdFactory);
+//    .AddEndpointFilter(ValidationHelper.ValidateIdFactory);
 
 // API using IEndpointFilter
 app.MapGet("/fruit/{id}", (string id) =>
     _fruit.TryGetValue(id, out var fruit)
         ? TypedResults.Ok(fruit)
         : Results.Problem(statusCode: 404))
-    .AddFilter<IdValidationFilter>();
+    .AddEndpointFilter<IdValidationFilter>();
 
 app.MapPost("/fruit/{id}", (Fruit fruit, string id) =>
     _fruit.TryAdd(id, fruit)
@@ -78,7 +78,7 @@ app.MapPost("/fruit/{id}", (Fruit fruit, string id) =>
           {
               { "id", new[] { "A fruit with this id already exists" } }
         }))
-    .AddFilter(ValidationHelper.ValidateIdFactory);
+    .AddEndpointFilter(ValidationHelper.ValidateIdFactory);
 
 app.MapPut("/fruit/{id}", (string id, Fruit fruit) =>
 {
@@ -98,7 +98,7 @@ record Fruit(string Name, int stock);
 class ValidationHelper
 {
     internal static async ValueTask<object?> ValidateId(
-        RouteHandlerInvocationContext context, RouteHandlerFilterDelegate next)
+        EndpointFilterInvocationContext context, EndpointFilterDelegate next)
     {
         var id = context.GetArgument<string>(0);
         if (string.IsNullOrEmpty(id) || !id.StartsWith('f'))
@@ -110,8 +110,9 @@ class ValidationHelper
         }
         return await next(context);
     }
-    internal static RouteHandlerFilterDelegate ValidateIdFactory(
-        RouteHandlerContext context, RouteHandlerFilterDelegate next)
+
+    internal static EndpointFilterDelegate ValidateIdFactory(
+        EndpointFilterFactoryContext context, EndpointFilterDelegate next)
     {
         ParameterInfo[] parameters = context.MethodInfo.GetParameters();
         int? idPosition = null;
@@ -143,9 +144,9 @@ class ValidationHelper
     }
 }
 
-class IdValidationFilter : IRouteHandlerFilter
+class IdValidationFilter : IEndpointFilter
 {
-    public async ValueTask<object?> InvokeAsync(RouteHandlerInvocationContext context, RouteHandlerFilterDelegate next)
+    public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
     {
         var id = context.GetArgument<string>(0);
         if (string.IsNullOrEmpty(id) || !id.StartsWith('f'))
