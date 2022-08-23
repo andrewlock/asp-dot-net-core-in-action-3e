@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StoreViewerApplication</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand js-title" asp-area="" asp-page="/Index">StoreViewerApplication</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container pb-3">
+        <div class="spinner-border" role="status" id="spinner">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <main role="main" hidden>
+
+            <h3 class="js-title"></h3>
+
+            <p id="copyright-notice">Mine! Hands off! ;)</p>
+
+            <div class="alert alert-warning" id="api-warning">
+                No API key found in settings. Follow the <a
+                    href="https://developers.google.com/maps/documentation/javascript/get-api-key">Googe Maps
+                    instructions</a> to
+                obtain an API key, and then store it in User Secrets to make it available to your app.
+            </div>
+
+            <div id="map" style="width: 100%; height: 80vh; background: grey;"></div>
+
+            <h4>Based on <a
+                    href="https://developers.google.com/maps/documentation/javascript/adding-a-google-map">Google
+                    Maps
+                    documentation</a></h4>
+
+            </section>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - StoreViewerApplication - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script>
+        (async function () {
+            const storesPromise = fetch('/stores')
+                .then(r => r.json());
+
+            const mapSettingsPromise = fetch('/map-settings')
+                .then(r => r.json());
+
+            const displaySettingsPromise = fetch('/display-settings')
+                .then(r => r.json());
+
+            const [stores, mapSettings, displaySettings] = await Promise.all([storesPromise, mapSettingsPromise, displaySettingsPromise]);
+
+            updateSettings();
+            loadGoogleMaps();
+
+
+            function updateSettings() {
+                document.title = displaySettings.appTitle;
+                document.querySelectorAll('.js-title').forEach(x=> x.textContent = displaySettings.appTitle);
+                if (!displaySettings.showCopyright) {
+                    document.getElementById('copyright-notice').setAttribute('hidden', 'true');
+                }
+                if (mapSettings.googleMapsApiKey) {
+                    document.getElementById('api-warning').setAttribute('hidden', 'true');
+                }
+            }
+
+            function loadGoogleMaps() {
+                window.initMap = initMap;
+                var script_tag = document.createElement('script');
+                script_tag.setAttribute("type", "text/javascript");
+                script_tag.setAttribute("src", `//maps.googleapis.com/maps/api/js?key=${mapSettings.googleMapsApiKey}&callback=initMap`);
+                (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+            }
+
+            function initMap() {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: mapSettings.defaultZoomLevel,
+                    center: {
+                        lat: mapSettings.defaultLocation.latitude,
+                        lng: mapSettings.defaultLocation.longitude
+                    },
+                });
+
+                stores.map(el => {
+                    var latLng = new google.maps.LatLng(
+                        el.location.latitude,
+                        el.location.longitude);
+                    return new google.maps.Marker({
+                        position: latLng,
+                        map: map,
+                        title: `${el.name} (${el.location.latitude}, ${el.location.longitude})`
+                    });
+                });
+                document.getElementById('spinner').setAttribute('hidden', 'true');
+                document.querySelector('main').removeAttribute('hidden');
+            }
+        })();
+
+    </script>
+</body>
+
+</html>
