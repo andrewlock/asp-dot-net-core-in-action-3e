@@ -5,9 +5,4 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Nswag.Aspnetcore" Version="13.16.1" />
-  </ItemGroup>
-
 </Project>

@@ -126,18 +126,20 @@ class ValidationHelper
             }
         }
 
+        if (!idPosition.HasValue)
+        {
+            return next;
+        }
+
         return async (invocationContext) =>
         {
-            if (idPosition.HasValue)
+            var id = invocationContext.GetArgument<string>(idPosition.Value);
+            if (string.IsNullOrEmpty(id) || !id.StartsWith('f'))
             {
-                var id = invocationContext.GetArgument<string>(idPosition.Value);
-                if (string.IsNullOrEmpty(id) || !id.StartsWith('f'))
+                return Results.ValidationProblem(new Dictionary<string, string[]>
                 {
-                    return Results.ValidationProblem(new Dictionary<string, string[]>
-                    {
-                        { "id", new[] { "Invalid format. Id must start with 'f'" } }
-                    });
-                }
+                    { "id", new[] { "Invalid format. Id must start with 'f'" } }
+                });
             }
             return await next(invocationContext);
         };
