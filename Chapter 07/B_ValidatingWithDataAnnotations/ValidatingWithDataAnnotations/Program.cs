@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
+// Complex type, attributes validate first. If they pass, runs IValidatableObject
 app.MapPost("/users", (CreateUserModel user) => user.ToString())
     .WithParameterValidation();
 
@@ -10,18 +11,21 @@ app.MapPost("/users", (CreateUserModel user) => user.ToString())
 //app.MapGet("/user/{id}", ([Range(0, 10)] int id) => id.ToString())
 //    .WithParameterValidation();
 
+// Custom type (struct)
 app.MapGet("/user1/{id}", ([AsParameters] GetUserModel model) => model.Id.ToString())
     .WithParameterValidation();
 
+// Custom type (struct record)
 app.MapGet("/user2/{id}", ([AsParameters] GetUserModel2 model) => model.Id.ToString())
     .WithParameterValidation();
 
+// TryParse() implementation
 app.MapGet("/user3/{id}", (UserId id) => id.ToString())
     .WithParameterValidation();
 
 app.Run();
 
-public record CreateUserModel
+public record CreateUserModel : IValidatableObject
 {
     [Required]
     [StringLength(100)]
@@ -33,13 +37,23 @@ public record CreateUserModel
     [Display(Name = "Last name")]
     public string LastName { get; set; }
 
-    [Required]
     [EmailAddress]
     public string Email { get; set; }
 
     [Phone]
     [Display(Name = "Phone number")]
     public string PhoneNumber { get; set; }
+
+    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+    {
+        if(string.IsNullOrEmpty(Email)
+            && string.IsNullOrEmpty(PhoneNumber))
+        {
+            yield return new ValidationResult(
+                "You must provide either an Email or a PhoneNumber",
+                new[] { nameof(Email), nameof(PhoneNumber) });
+        }
+    }
 }
 
 struct GetUserModel
