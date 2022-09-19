@@ -54,3 +54,10 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *StoreViewerApplication* - A simple application that uses `IOptions<>` and strongly typed settings to bind configuration to POCOs. Optionally uses Google Maps to demonstrate loading settings from multiple sources.  Follow the [documentation from Google](https://developers.google.com/maps/documentation/javascript/get-api-key) to obtain an API key.
 * *DesigningForAutomaticBinding* - Demonstrating how to create strongly typed settings that can be bound to configuration, and the limitations, as shown in section 10.3.3.
 * *UsingDifferentEnvironments* - Demonstrates how to overwrite values based on the environment. In particular, observe how list values are overwritten.
+
+## [Chapter 11](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter11)
+* *OpenApiExample_Swashbuckle* - Adding an OpenAPI document to your app using Swashbuckle, as shown in sections 11.1, 11.2, and 11.3.
+* *OpenApiExample_NSwag* - Adding an OpenAPI document to your app using NSwag. Equivalent to the Swashbuckle version, but using NSwag instead. 
+* *GeneratingOpenApiClient* - Using NSwag to generate a C# client from an OpenAPI description, as shown in section 11.4.2. The API was added using the .NET OpenAPI tool.
+* *CustomisingGeneration* - Customising the generated code to use System.Text.Json, no base URL, and to generate interfaces, as shown in section 11.4.3.
+* *AddingDescriptions* - Adding summaries and descriptions to your endpoints using fluent methods, attributes, and XML documentation comments, as shown in section 11.5.

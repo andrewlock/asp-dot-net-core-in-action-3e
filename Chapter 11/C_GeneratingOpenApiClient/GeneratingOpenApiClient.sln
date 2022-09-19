@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{D0786F0B-4D0B-4AE4-95F4-30AE53042AAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenApiExample", "OpenApiExample\OpenApiExample.csproj", "{7336B986-65AA-4C14-B721-D8E09CF2E922}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0786F0B-4D0B-4AE4-95F4-30AE53042AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0786F0B-4D0B-4AE4-95F4-30AE53042AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0786F0B-4D0B-4AE4-95F4-30AE53042AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0786F0B-4D0B-4AE4-95F4-30AE53042AAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7336B986-65AA-4C14-B721-D8E09CF2E922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7336B986-65AA-4C14-B721-D8E09CF2E922}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7336B986-65AA-4C14-B721-D8E09CF2E922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7336B986-65AA-4C14-B721-D8E09CF2E922}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

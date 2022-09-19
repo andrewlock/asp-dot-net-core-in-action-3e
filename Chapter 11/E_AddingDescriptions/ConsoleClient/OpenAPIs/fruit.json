@@ -1,0 +1,274 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenApiExample",
+    "version": "1.0"
+  },
+  "paths": {
+    "/fruit/{id}": {
+      "get": {
+        "tags": [
+          "fruit"
+        ],
+        "summary": "Fetches a fruit",
+        "description": "Fetches a fruit by id, or returns 404 if no fruit with the ID exists",
+        "operationId": "GetFruit",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the fruit to fetch",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fruit"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "fruit"
+        ],
+        "summary": "Creates a fruit",
+        "description": "Creates a new fruit entry with the provided ID. The fruit must not already exist",
+        "operationId": "CreateFruit",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the fruit to create",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "content": {
+              "application/json": { }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Fruit"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fruit"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fruit2/{id}": {
+      "get": {
+        "tags": [
+          "fruit"
+        ],
+        "summary": "Fetches a fruit",
+        "description": "Fetches a fruit by id, or returns 404 if no fruit with the ID exists",
+        "operationId": "GetFruit2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the fruit to fetch",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fruit"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fruit3/{id}": {
+      "get": {
+        "tags": [
+          "fruit"
+        ],
+        "summary": "Fetches a fruit by id, or returns 404 if no fruit with the ID exists",
+        "operationId": "GetFruit3",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the fruit to fetch",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the fruit if it exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fruit"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "If the fruit doesn't exist",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Fruit": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpValidationProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      }
+    }
+  }
+}
