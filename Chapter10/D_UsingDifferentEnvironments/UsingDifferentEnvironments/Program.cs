@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<MyValues>(
     builder.Configuration.GetSection(nameof(MyValues)));
 
-builder.Services.ConfigureRouteHandlerJsonOptions(o => o.SerializerOptions.WriteIndented = true);
+builder.Services.ConfigureHttpJsonOptions(o => o.SerializerOptions.WriteIndented = true);
 
 var app = builder.Build();
 

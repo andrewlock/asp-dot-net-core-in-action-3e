@@ -8,7 +8,7 @@ builder.Services.Configure<BindableOptions>(section);
 builder.Services.Configure<UnbindableOptions>(section);
 
 // format minimal APIs for legibility
-builder.Services.ConfigureRouteHandlerJsonOptions(o => o.SerializerOptions.WriteIndented = true);
+builder.Services.ConfigureHttpJsonOptions(o => o.SerializerOptions.WriteIndented = true);
 
 // manually bind and register the settings
 // Allows you to inject TestOptions directly into services, 

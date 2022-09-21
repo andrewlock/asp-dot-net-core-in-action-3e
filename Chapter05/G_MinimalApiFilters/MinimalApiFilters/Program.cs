@@ -62,7 +62,7 @@ app.MapGet("/fruit", () => _fruit);
 //    _fruit.TryGetValue(id, out var fruit)
 //        ? TypedResults.Ok(fruit)
 //        : Results.Problem(statusCode: 404))
-//    .AddEndpointFilter(ValidationHelper.ValidateIdFactory);
+//    .AddEndpointFilterFactory(ValidationHelper.ValidateIdFactory);
 
 // API using IEndpointFilter
 app.MapGet("/fruit/{id}", (string id) =>
@@ -78,7 +78,7 @@ app.MapPost("/fruit/{id}", (Fruit fruit, string id) =>
           {
               { "id", new[] { "A fruit with this id already exists" } }
         }))
-    .AddEndpointFilter(ValidationHelper.ValidateIdFactory);
+    .AddEndpointFilterFactory(ValidationHelper.ValidateIdFactory);
 
 app.MapPut("/fruit/{id}", (string id, Fruit fruit) =>
 {

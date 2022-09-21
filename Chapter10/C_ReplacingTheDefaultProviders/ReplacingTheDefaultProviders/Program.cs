@@ -5,7 +5,7 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnCh
 builder.Configuration.AddJsonFile("extrasettings.json", optional: false, reloadOnChange: true);
 
 // displaying json for clarity
-builder.Services.ConfigureRouteHandlerJsonOptions(o => o.SerializerOptions.WriteIndented = true);
+builder.Services.ConfigureHttpJsonOptions(o => o.SerializerOptions.WriteIndented = true);
 
 var app = builder.Build();
 
