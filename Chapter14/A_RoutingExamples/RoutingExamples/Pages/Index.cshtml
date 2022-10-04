@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Click on one of the product examples and view how the URL changes. Both of these products are displayed by the same Razor Page. 
+        The search page shows an example of routing using the handler parameter</p>
+</div>
+
+<ul>
+    <li><a asp-area="" asp-page="/Products" asp-route-name="big-widget">Big widget</a></li>
+    <li><a asp-area="" asp-page="/Products" asp-route-name="super-fancy-widget">Super fancy widget</a></li>
+    <li><a asp-area="" asp-page="/Search">Search</a></li>
+</ul>

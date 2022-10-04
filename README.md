@@ -73,3 +73,7 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *WebApplication1* - Your first Razor Pages application. Created using the default Web App template.
 * *ATypicalRazorPage* - 13.2.1 Exploring a typical Razor Page
 * *ConvertingToMvc* - 13.3 An MVC application, with separate Model, View, and Controller files
+
+## [Chapter 14](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter14)
+* *RoutingExamples* - Multiple examples of routing. In particular, see _Search.cshtml_,  _Products.cshtml_, and _ProductDetails/Index.cshtml_. _Index.cshtml_ includes links demonstrating route parameters
+* *ChangingConventions* - Customizing the URLs using conventions. See _Program.cs_
