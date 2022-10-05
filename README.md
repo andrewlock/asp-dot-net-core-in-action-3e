@@ -77,3 +77,9 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 ## [Chapter 14](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter14)
 * *RoutingExamples* - Multiple examples of routing. In particular, see _Search.cshtml_,  _Products.cshtml_, and _ProductDetails/Index.cshtml_. _Index.cshtml_ includes links demonstrating route parameters
 * *ChangingConventions* - Customizing the URLs using conventions. See _Program.cs_
+
+## [Chapter 15](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter15)
+* *PageHandlers* - 15.3 Using different Razor Page handlers to handle different HTTP verbs (`GET` and `POST`)
+* *StatusCodePages* - 15.5 A basic minimal API application demonstrating the StatusCodePagesMiddleware
+* *StatusCodePagesWithRexecute* - 15.5 Reexecuting the pipeline to create custom status code pages
+* *StatusCodePagesWithReExecuteRazorPages* - 15.5 Reexecuting the pipeline to create custom status code pages in a Razor Pages application, with a custom 404 error page, and a generic error page for other errors.

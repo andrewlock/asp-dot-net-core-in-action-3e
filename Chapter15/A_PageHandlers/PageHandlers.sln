@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32519.111
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageHandlers", "PageHandlers\PageHandlers.csproj", "{5DF03908-FE82-4357-93F2-C21AD3142F23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DF03908-FE82-4357-93F2-C21AD3142F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF03908-FE82-4357-93F2-C21AD3142F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF03908-FE82-4357-93F2-C21AD3142F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF03908-FE82-4357-93F2-C21AD3142F23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB7D3E9D-4C61-4B6F-9192-B4B084709758}
+	EndGlobalSection
+EndGlobal
