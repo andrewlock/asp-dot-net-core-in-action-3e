@@ -83,3 +83,13 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *StatusCodePages* - 15.5 A basic minimal API application demonstrating the StatusCodePagesMiddleware
 * *StatusCodePagesWithRexecute* - 15.5 Reexecuting the pipeline to create custom status code pages
 * *StatusCodePagesWithReExecuteRazorPages* - 15.5 Reexecuting the pipeline to create custom status code pages in a Razor Pages application, with a custom 404 error page, and a generic error page for other errors.
+
+## [Chapter 16](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter16)
+* *ToDoList* - Basic application demonstrating the application in Figure 16.1
+* *ExampleBinding_EditProduct* - Binding a custom class using Model Binding
+* *ExampleBinding_Calculator* - Binding a custom class using Model Binding
+* *SimpleCurrencyConverterBindings* - Model binding simple properties. Demonstrates Table 16.1, binding to route parameters, form parameters and the querystring
+* *ListBinding* - Model binding to collections, as shown in Figure 16.5
+* *ValidatingWithDataAnnotations* - A dummy checkout page, demonstrating Model validation using various `DataAnnotations`. Also shows POST-REDIRECT-GET
+* *CurrencyConverter* - A dummy currency converter application. Demonstrates model binding, `DataAnnotations`, and a custom validation attribute
+* *RazorPageFormLayout* - Organising a Razor Page for model binding, as in section 16.4
