@@ -102,3 +102,9 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *NestedLayouts* - Demonstrates using a nested layout, where a two column layout, `_TwoColumn.cshtml` is nested in `_Layout.cshtml`.
 * *PartialViews* - Demonstrates extracting common code into a partial view, as in section 17.4.3. Also shows adding additional namespace to _ViewImports for `PartialViews.Models` namespace.
 * *DefaultMVCProject* - Default MVC template, showing the default conventions for finding a view. Also shows how you can specify the template to Render - the `HomeController` specifies alternative view to render at the URL `/Home/IndexThatRendersPrivacy`
+
+## [Chapter 18](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter18)
+* *CurrencyConverter* - A demo currency converter application using TagHelpers to generate form elements.
+* *TagHelpers* - Demonstrates the input types generated for various property types and `DataAnnotations`, as described table 18.1.
+* *SelectLists* - Generating a variety of select lists, as shown in section 18.2.4
+* *EnvironmentTag* - Using the environment tag to conditionally render content, as shown in section 18.5
