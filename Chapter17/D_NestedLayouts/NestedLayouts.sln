@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.32804.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NestedLayouts", "NestedLayouts\NestedLayouts.csproj", "{33847A31-AA8D-4EFB-92FF-553449EAC65A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33847A31-AA8D-4EFB-92FF-553449EAC65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33847A31-AA8D-4EFB-92FF-553449EAC65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33847A31-AA8D-4EFB-92FF-553449EAC65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33847A31-AA8D-4EFB-92FF-553449EAC65A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CFAB2188-624B-4567-9FA8-7A101048DE57}
+	EndGlobalSection
+EndGlobal

@@ -93,3 +93,12 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *ValidatingWithDataAnnotations* - A dummy checkout page, demonstrating Model validation using various `DataAnnotations`. Also shows POST-REDIRECT-GET
 * *CurrencyConverter* - A dummy currency converter application. Demonstrates model binding, `DataAnnotations`, and a custom validation attribute
 * *RazorPageFormLayout* - Organising a Razor Page for model binding, as in section 16.4
+
+
+## [Chapter 17](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter17)
+* *ManageUsers* - Display a list of users, and allow adding new users, as shown in figure 17.3
+* *DynamicHtml* - Example of creating dynamic HTML by using C# in Razor templates.
+* *ToDoList* - Example of writing model values to HTML in Razor templates, as shown in section 17.2
+* *NestedLayouts* - Demonstrates using a nested layout, where a two column layout, `_TwoColumn.cshtml` is nested in `_Layout.cshtml`.
+* *PartialViews* - Demonstrates extracting common code into a partial view, as in section 17.4.3. Also shows adding additional namespace to _ViewImports for `PartialViews.Models` namespace.
+* *DefaultMVCProject* - Default MVC template, showing the default conventions for finding a view. Also shows how you can specify the template to Render - the `HomeController` specifies alternative view to render at the URL `/Home/IndexThatRendersPrivacy`
