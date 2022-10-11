@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MinimalApis.Extensions" Version="0.8.0-pre.20220915.33" />
+    <PackageReference Include="MinimalApis.Extensions" Version="0.9.0-pre.20221011.36" />
   </ItemGroup>
 
 </Project>
