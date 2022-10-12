@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages()
                 .AddRazorPagesOptions(opts =>
                 {
+                    // opts.Conventions.AddPageRouteModelConvention(new PrefixingPageRouteModelConvention()); // Add for all pages
+                    opts.Conventions.AddPageRouteModelConvention("/Privacy", new PrefixingPageRouteModelConvention().Apply);
                     opts.Conventions.Add(new PageRouteTransformerConvention(new KebabCaseParameterTransformer()));
                     opts.Conventions.AddPageRoute("/ProductDetails/Search", "search-products");
                 });
@@ -26,6 +28,30 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+
+public class PrefixingPageRouteModelConvention : IPageRouteModelConvention
+{
+    public void Apply(PageRouteModel model)
+    {
+        var selectors = model.Selectors
+            .Select(x => new SelectorModel
+            {
+                AttributeRouteModel = new AttributeRouteModel
+                {
+                    Template = AttributeRouteModel.CombineTemplates(
+                        "page",
+                        x.AttributeRouteModel!.Template),
+                }
+            })
+            .ToList();
+
+        foreach(var newSelector in selectors)
+        {
+            model.Selectors.Add(newSelector);
+        }
+    }
+}
+
 
 // .NET 6 version can't use [GeneratedRegex] attribute
 //class KebabCaseParameterTransformer : IOutboundParameterTransformer
@@ -56,3 +82,4 @@ partial class KebabCaseParameterTransformer : IOutboundParameterTransformer
     [GeneratedRegex("([a-z])([A-Z])")]
     private static partial Regex MyRegex();
 }
+
