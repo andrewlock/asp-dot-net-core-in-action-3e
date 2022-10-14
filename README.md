@@ -72,7 +72,6 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 ## [Chapter 13](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter13)
 * *WebApplication1* - Your first Razor Pages application. Created using the default Web App template.
 * *ATypicalRazorPage* - 13.2.1 Exploring a typical Razor Page
-* *ConvertingToMvc* - 13.3 An MVC application, with separate Model, View, and Controller files
 
 ## [Chapter 14](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter14)
 * *RoutingExamples* - Multiple examples of routing. In particular, see _Search.cshtml_,  _Products.cshtml_, and _ProductDetails/Index.cshtml_. _Index.cshtml_ includes links demonstrating route parameters
@@ -94,14 +93,12 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *CurrencyConverter* - A dummy currency converter application. Demonstrates model binding, `DataAnnotations`, and a custom validation attribute
 * *RazorPageFormLayout* - Organising a Razor Page for model binding, as in section 16.4
 
-
 ## [Chapter 17](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter17)
 * *ManageUsers* - Display a list of users, and allow adding new users, as shown in figure 17.3
 * *DynamicHtml* - Example of creating dynamic HTML by using C# in Razor templates.
 * *ToDoList* - Example of writing model values to HTML in Razor templates, as shown in section 17.2
 * *NestedLayouts* - Demonstrates using a nested layout, where a two column layout, `_TwoColumn.cshtml` is nested in `_Layout.cshtml`.
 * *PartialViews* - Demonstrates extracting common code into a partial view, as in section 17.4.3. Also shows adding additional namespace to _ViewImports for `PartialViews.Models` namespace.
-* *DefaultMVCProject* - Default MVC template, showing the default conventions for finding a view. Also shows how you can specify the template to Render - the `HomeController` specifies alternative view to render at the URL `/Home/IndexThatRendersPrivacy`
 
 ## [Chapter 18](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter18)
 * *CurrencyConverter* - A demo currency converter application using TagHelpers to generate form elements.
@@ -110,12 +107,16 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *EnvironmentTag* - Using the environment tag to conditionally render content, as shown in section 18.5
 
 ## [Chapter 19](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter19)
-* *DefaultWebApiProject* - The default Web API project, created using the Visual Studio API template, as in section 19.2.
-* *BasicWebApiProject* - A basic Web API project, returning a list of fruit, as demonstrated in section 19.2.
-* *UsingApiControllerAttribute* - A project containing 2 controllers, demonstrating the additional code required if you don't use the `[ApiController]` attribute, as in section 19.5.
+* *WebApplication1* - Your first MVC controller application. Created using the default Web App (Model-View-Controller) template.
+* *FindingAView* - Default MVC template, showing the default conventions for finding a view. Also shows how you can specify the template to Render - the `HomeController` specifies alternative views to render at the URLs `/Home/IndexThatRendersPrivacy` and `/Home/IndexThatRendersPrivacyAbsolute`.
+
+## [Chapter 20](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter20)
+* *DefaultWebApiProject* - The default Web API project, created using the Visual Studio API template, as in section 20.2.
+* *BasicWebApiProject* - A basic Web API project, returning a list of fruit, as demonstrated in section 20.2.
+* *UsingApiControllerAttribute* - A project containing 2 controllers, demonstrating the additional code required if you don't use the `[ApiController]` attribute, as in section 20.5.
 * *ProblemDetailsExample* - A simple API controller that demonstrates automatically returning a `ValidationProblemDetails` object when the binding model (the `myValue` route parameter) is empty.
 * *CarsWebApi* - A Web API controller that demonstrates generating various different response types. Is configured to allow XML output in Program.cs Use Swagger UI to make requests to the API and view the XML response. Also configured to use the _Newtonsoft.Json_ formatter instead of the _System.Text.Json_ formatter.
 
-## [Chapter 20](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter20)
+## [Chapter 21](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter21)
 * *FilterPipelineExample* - A sample application with a single API Controller and a single Razor Page that contains one of each filter, and logs when the filter runs. Each filter contains commented out code to short-circuit the pipeline. Uncomment the code from each filter in turn to see the effect.
-* *RecipeApplication* - The RecipeApplication from chapter 12 plus two API controllers. The `NoApiController` includes the code from listing 20.8, while the `RecipeApiController` includes the code from listing 20.9 where the code is refactored to use filters.
+* *RecipeApplication* - The RecipeApplication from chapter 12 plus two API controllers. The `NoApiController` includes the code from listing 21.8, while the `RecipeApiController` includes the code from listing 20.9 where the code is refactored to use filters.
