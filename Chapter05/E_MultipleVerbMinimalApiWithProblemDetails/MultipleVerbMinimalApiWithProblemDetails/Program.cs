@@ -41,4 +41,4 @@ app.MapGet("/teapot", (HttpResponse response) =>
 });
 
 app.Run();
-record Fruit(string Name, int stock);
+record Fruit(string Name, int Stock);

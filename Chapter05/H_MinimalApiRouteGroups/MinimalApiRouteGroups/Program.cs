@@ -39,7 +39,7 @@ fruitApiWithValidation.MapDelete("/fruit/{id}", (string id) =>
 });
 
 app.Run();
-record Fruit(string Name, int stock);
+record Fruit(string Name, int Stock);
 class ValidationHelper
 {
     internal static EndpointFilterDelegate ValidateIdFactory(

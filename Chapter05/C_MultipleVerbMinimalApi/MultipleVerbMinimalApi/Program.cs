@@ -20,7 +20,7 @@ void DeleteFruit(string id)
     Fruit.All.Remove(id);
 }
 
-record Fruit(string Name, int stock)
+record Fruit(string Name, int Stock)
 {
     public static readonly Dictionary<string, Fruit> All = new();
 };
