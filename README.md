@@ -117,6 +117,6 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *ProblemDetailsExample* - A simple API controller that demonstrates automatically returning a `ValidationProblemDetails` object when the binding model (the `myValue` route parameter) is empty.
 * *CarsWebApi* - A Web API controller that demonstrates generating various different response types. Is configured to allow XML output in Program.cs Use Swagger UI to make requests to the API and view the XML response. Also configured to use the _Newtonsoft.Json_ formatter instead of the _System.Text.Json_ formatter.
 
-## [Chapter 21](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter21)
+## [Chapter 22](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter22)
 * *FilterPipelineExample* - A sample application with a single API Controller and a single Razor Page that contains one of each filter, and logs when the filter runs. Each filter contains commented out code to short-circuit the pipeline. Uncomment the code from each filter in turn to see the effect.
 * *RecipeApplication* - The RecipeApplication from chapter 12 plus two API controllers. The `NoApiController` includes the code from listing 21.8, while the `RecipeApiController` includes the code from listing 20.9 where the code is refactored to use filters.
