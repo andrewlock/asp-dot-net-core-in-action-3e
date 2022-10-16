@@ -120,3 +120,14 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 ## [Chapter 22](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter22)
 * *FilterPipelineExample* - A sample application with a single API Controller and a single Razor Page that contains one of each filter, and logs when the filter runs. Each filter contains commented out code to short-circuit the pipeline. Uncomment the code from each filter in turn to see the effect.
 * *RecipeApplication* - The RecipeApplication from chapter 12 plus two API controllers. The `NoApiController` includes the code from listing 21.8, while the `RecipeApiController` includes the code from listing 20.9 where the code is refactored to use filters.
+
+
+## [Chapter 22](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter22)
+* *FilterPipelineExample* - A sample application with a single API Controller and a single Razor Page that contains one of each filter, and logs when the filter runs. Each filter contains commented out code to short-circuit the pipeline. Uncomment the code from each filter in turn to see the effect.
+* *RecipeApplication* - The RecipeApplication from chapter 12 plus two API controllers. The `NoApiController` includes the code from listing 21.8, while the `RecipeApiController` includes the code from listing 20.9 where the code is refactored to use filters.
+
+## [Chapter 23](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter14)
+* *DefaultTemplate* - The default web app template for ASP.NET Core with Authentication, as discussed in section 23.3. Examples using LocalDB (created through Visual Studio) and using SQLite (created using `dotnet new webapp --auth Individual`)
+* *RecipeApplication* - The starting point "existing" recipe application, as described in section 23.4.
+* *RecipeApplication_WithIdentity* - The recipe application with authentication added, as described in section 23.4. Also, the register page has been scaffolded to remove the references to external services, as described in section 23.5.
+* *RecipeApplication_WithNameClaim* - The recipe application with an additional field added to the `RegisterModel` to record the `FullName`, as described in section 23.6. The field is added as an extra claim when the user registers, and is displayed in the menu bar when a user logs in.
