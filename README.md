@@ -131,3 +131,7 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *RecipeApplication* - The starting point "existing" recipe application, as described in section 23.4.
 * *RecipeApplication_WithIdentity* - The recipe application with authentication added, as described in section 23.4. Also, the register page has been scaffolded to remove the references to external services, as described in section 23.5.
 * *RecipeApplication_WithNameClaim* - The recipe application with an additional field added to the `RegisterModel` to record the `FullName`, as described in section 23.6. The field is added as an extra claim when the user registers, and is displayed in the menu bar when a user logs in.
+
+## [Chapter 24](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter24)
+* *Airport* - An analogy to the airport example presented in section 24.1. There are 4 steps, Home Page, Through security, Enter airport lounge, Board the plane. You can set the claims for a user when you register. Which claims you add will determine how far through the airport you can get.
+* *RecipeApplication* - The *RecipeApplication_WithIdentity* from chapter 23, with authorization to prevent unauthorized users creating recipes, and resource based authorization to ensure only the user which created a recipe can edit it.
