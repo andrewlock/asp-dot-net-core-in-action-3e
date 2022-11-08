@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33006.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLogger", "FileLogger\FileLogger.csproj", "{CB694C72-0165-4104-BD62-82F10743173A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB694C72-0165-4104-BD62-82F10743173A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB694C72-0165-4104-BD62-82F10743173A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB694C72-0165-4104-BD62-82F10743173A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB694C72-0165-4104-BD62-82F10743173A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F74864E9-5BB3-4006-B411-24748A48C199}
+	EndGlobalSection
+EndGlobal
