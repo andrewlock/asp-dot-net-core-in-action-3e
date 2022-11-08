@@ -82,6 +82,7 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *StatusCodePages* - 15.5 A basic minimal API application demonstrating the StatusCodePagesMiddleware
 * *StatusCodePagesWithRexecute* - 15.5 Reexecuting the pipeline to create custom status code pages
 * *StatusCodePagesWithReExecuteRazorPages* - 15.5 Reexecuting the pipeline to create custom status code pages in a Razor Pages application, with a custom 404 error page, and a generic error page for other errors.
+* *StatusCodePagesWithRedirect* - 15.5 Redirecting the pipeline to create custom status code pages in a Razor Pages application, with a custom 404 error page, and a generic error page for other errors.
 
 ## [Chapter 16](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter16)
 * *ToDoList* - Basic application demonstrating the application in Figure 16.1
@@ -140,3 +141,12 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *RecipeApi_WithAuthentication* - The recipe API from chapter 12, with added authentication, as described in section 25.3.
 * *RecipeApi_SwaggerAuth* - Extending the recipe API to describe the authorization requirement for OpenAPI and Swagger UI, as described in section 25.5.
 * *RecipeApi_WithAuthorizationPolicies* - Adding additional authorization policies to the CreateRecipe API and management APIs, as described in section 25.6. An endpoint filter is used to apply resource-based authorization to multiple endpoints.
+
+## [Chapter 26](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter26)
+* *RecipeApplication* - The recipe application from previous chapters with some additional logging added to some Razor Pages.
+* *FileLogger* - A simple minimal API Project configured to write log messages to a rolling file by using a rolling file logging provider, as shown in section 26.3. Note that the log levels have been changed from the defaults in appsettings.json and appsettings.Development.json to show more in the logs.
+* *LogFiltering* - A simple minimal API Project configured to use the configuration filters defined in section 26.4.
+* *SeqLogger* - A simple minimal API project to demonstrate structured logging using Seq, and using scopes to add additional properties to a log, as shown in section 26.5.
+
+## [Chapter 27](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter27)
+* *RecipeApplication* - The Recipe application from previous chapters, updated to demonstrate bundling. Added additional JS and CSS files to demonstrate bundling and minifying, and added *bundleconfig.json*
