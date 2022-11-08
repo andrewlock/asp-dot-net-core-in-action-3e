@@ -8,12 +8,12 @@
 
   <ItemGroup>
 	  <!--If you're using Sql Server or Local DB, use the following package-->
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0-rc.2.22472.11" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0" />
 
 	  <!--If you're using SQLite, use the following package-->
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="7.0.0-rc.2.22472.11" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="7.0.0" />
 
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0-rc.2.22472.11">
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
