@@ -150,3 +150,10 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 
 ## [Chapter 27](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter27)
 * *RecipeApplication* - The Recipe application from previous chapters, updated to demonstrate bundling. Added additional JS and CSS files to demonstrate bundling and minifying, and added *bundleconfig.json*
+
+## [Chapter 28](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter28)
+* *CustomHttpsCertificate* - A basic Razor Pages app using Kestrel with a self-signed certificate, similar to the way you would configure a certificate in production. Shows configuring the default certificate used by Kestrel in _appsettings.json_.
+
+On Windows, you can generate a self-signed certificate using the *Install-Certificate.ps1* PowerShell script. This will create a self-signed certificate and add it to Windows' trusted certificate store. You must run this from an elevated command prompt.
+
+You can generate a certificate on Ubuntu using *install_certificate.sh*. This uses *localhost.conf* to create a self signed certificate, and trusts it. On Linux, not all applications use the same store, so you may have to trust it explicitly for those applications. Use password `testpassword` to create the certificate.
