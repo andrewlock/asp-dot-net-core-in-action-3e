@@ -157,3 +157,35 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 On Windows, you can generate a self-signed certificate using the *Install-Certificate.ps1* PowerShell script. This will create a self-signed certificate and add it to Windows' trusted certificate store. You must run this from an elevated command prompt.
 
 You can generate a certificate on Ubuntu using *install_certificate.sh*. This uses *localhost.conf* to create a self signed certificate, and trusts it. On Linux, not all applications use the same store, so you may have to trust it explicitly for those applications. Use password `testpassword` to create the certificate.
+
+## [Chapter 29](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter29)
+* *CrossSiteScripting* - A simple app to demonstrate XSS attacks due to not encoding user input. The user submits content which is added to an internal list and is later rendered to the page. Using `@Html.Raw` renders the provided input exactly as it was entered - if the content is malicious, e.g. a `<script>` tag, then it is written into the page as a script tag, executing any code it contains. Instead, you should render content with the `@` symbol alone - that way the content is rendered as a string, and can be displayed safely.
+
+* *CrossSiteRequestForgery* - A pair of apps to demonstrate a CSRF vulnerability. You can login to the banking application and view your balance. You can 'withdraw' funds using the provided form, and you'll see your balance reduce. The attacker website contains a form that posts to the banking application and withdraws funds for the currently logged in user. In the example you have to click the button to see the vulnerability, but this could easily be automated. To protect the endpoint, add the `[ValidateAntiForgeryToken]` attribute to the `BalanceController.Withdraw()` action. Run both applications by selecting "Set Startup Projects" in Visual Studio, or by running both applications using `dotnet run`.
+
+* *CorsApplication* - A pair of apps to demonstrate CORS. The "shopping.com" site is a Razor Pages application, that loads a product list from a separate app, "api.shopping.com", hosted at a different host. With the default configuration, the request succeeds. Experiment by removing the default CORS policy from the `UseCors()` middleware configuration, and applying `[EnableCors]` to the `ProductsController` instead. Note that it's the _API_ that defines which applications can call it. Run both applications by selecting "Set Startup Projects" in Visual Studio, or by running both applications using `dotnet run`.
+
+## [Chapter 30](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter30)
+* *RecipeApplication* - The recipe application from previous chapters, converted to use the generic host, with a `Startup` class.
+
+## [Chapter 31](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter31)
+* *CustomMiddleware* - Various custom middleware, using, `Map`, `Run`, `Use`, and middleware classes, as described in section 31.1. Also, the `PingPongMiddleware`, `VersionMiddleware`, and `CalculatorMiddleware`, from the *CustomMiddleware* project, exposed as endpoints using _endpoint routing_.
+* *ConfigureOptionsExample* - Configuring `IOptions` using services as described in section 31.2. Shows configuration using `OptionsBuilder` and using the alternative approach shown previously. The `IOptions<T>` are configured in multiple ways - from configuration values, from static values (using a Lambda), and using a service from DI. 
+* *LamarExample* - Replacing the default DI container with Lamar (the successor to StructureMap), as in section 31.3. Demonstrates some of the functionality available in Lamar.
+
+## [Chapter 32](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter32)
+* *CustomTagHelpers* - Creating custom Tag Helpers, an `IfTagHelper` and `SystemInfoTagHelper`, as shown in section 32.1.
+* *RecipeApplication* - The Recipe Application from previous chapters, this time with a custom view component, as described in section 32.2.
+* *CurrencyConverter* - The demo Currency converter application, containing a custom validation attribute for validating the selected currencies, as in section 32.3.
+* *FluentValidationConverter* - The demo Currency converter application, configured to use the FluentValidation library instead of DataAnnotations. Contains validation extension methods for validating the selected currencies, as in section 32.4.
+
+## [Chapter 33](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter33)
+
+* *SocketExhaustion* - A simple application that creates many `HttpClient`s, demonstrating sockets being consumed. Run `netstat` in a separate window, to view sockets stuck in the `TIME_WAIT` status, as discussed in section 33.1.1.
+* *ExchangeRateViewer* - An API controller that calls a remote exchange rate API, and returns the value. Shows 4 different ways of using `HttpClient` and `IHttpClientFactory`:
+  * Singleton `HttpClient`: A single `HttpClient` that lives for the life of the application, as discussed in section 33.1. This client won't respect DNS changes.
+  * Using `IHttpClientFactory` to create an `HttpClient`, as described in section 33.2.1.
+  * Using a _named_ `HttpClient`, as described in section 33.2.2
+  * Creating a _typed_ `HttpClient`, as described in section 33.2.3
+  * Adding transient error handling using _Polly_, as described in section 33.3
+  * Creating a custom `HttpMessageHandler` for adding an API key, as described in section 33.4
