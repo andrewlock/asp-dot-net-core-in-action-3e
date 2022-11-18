@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateViewer", "ExchangeRateViewer\ExchangeRateViewer.csproj", "{B2E697BB-ABB3-4F7C-9490-67A955DCDC65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2E697BB-ABB3-4F7C-9490-67A955DCDC65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E697BB-ABB3-4F7C-9490-67A955DCDC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E697BB-ABB3-4F7C-9490-67A955DCDC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E697BB-ABB3-4F7C-9490-67A955DCDC65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D730EAF0-2669-4993-BD39-98ED04B7273E}
+	EndGlobalSection
+EndGlobal
