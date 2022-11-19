@@ -189,3 +189,11 @@ You can generate a certificate on Ubuntu using *install_certificate.sh*. This us
   * Creating a _typed_ `HttpClient`, as described in section 33.2.3
   * Adding transient error handling using _Polly_, as described in section 33.3
   * Creating a custom `HttpMessageHandler` for adding an API key, as described in section 33.4
+
+## [Chapter 34](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter34)
+* *BackgroundServiceCache* - An `IHostedService` that downloads exchange rates from a remote API and saves them in a dictionary, for consumption by an API controller, as described in section 34.1.1
+* *BackgroundServiceDatabaseCache* - An `IHostedService` that uses scoped services, downloads exchange rates from a remote API and saves them in a dictionary, as described in section 34.1.2
+* *SystemdService* - A generic `Host` to download exchange rates, configured to execute as a systemd daemon, as described in section 34.2
+* *WindowsService* - A generic `Host` to download exchange rates, configured to execute as a Windows Service, as described in section 34.2.
+* *QuartzHostedService* - A generic `Host` that uses Quartz.NET to run background tasks
+* *QuartzClustering* - A generic `Host` that uses Quartz.NET to run background tasks configured to use clustering. Note that SQLite is not supported for clustering, so this application uses LocalDB
