@@ -19,12 +19,9 @@ builder.Services.AddScoped<RecipeService>();
 builder.Services.AddRazorPages();
 
 builder.Services.AddScoped<IAuthorizationHandler, IsRecipeOwnerHandler>();
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("CanManageRecipe",
-        policyBuilder => policyBuilder
-            .AddRequirements(new IsRecipeOwnerRequirement()));
-});
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("CanManageRecipe", policyBuilder => 
+        policyBuilder.AddRequirements(new IsRecipeOwnerRequirement()));
 
 var app = builder.Build();
 

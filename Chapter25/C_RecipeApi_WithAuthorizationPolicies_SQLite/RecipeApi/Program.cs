@@ -12,15 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication().AddJwtBearer();
 
 // Configure authorization policies
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("CanManageRecipe",
-        policyBuilder => policyBuilder
-            .AddRequirements(new IsRecipeOwnerRequirement()));
-
-    options.AddPolicy("CanCreateRecipe",
-        policyBuilder => policyBuilder.RequireClaim("Subscription", "Pro"));
-});
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("CanManageRecipe", policyBuilder => 
+        policyBuilder.AddRequirements(new IsRecipeOwnerRequirement()))
+    .AddPolicy("CanCreateRecipe", policyBuilder => 
+        policyBuilder.RequireClaim("Subscription", "Pro"));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(x =>
