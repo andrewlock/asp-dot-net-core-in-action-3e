@@ -7,7 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.0" />
@@ -22,12 +21,4 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.0" />
 		<PackageReference Include="Seq.Extensions.Logging" Version="6.1.0" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Migrations\" />
-	</ItemGroup>
-
-	<Target Name="BundleScopedCss" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
-	    <BundlerMinifier.BundlerBuildTask FileName="$(MSBuildProjectDirectory)\bundleconfig.json" />
-  	</Target>
 </Project>

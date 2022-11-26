@@ -148,8 +148,8 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *LogFiltering* - A simple minimal API Project configured to use the configuration filters defined in section 26.4.
 * *SeqLogger* - A simple minimal API project to demonstrate structured logging using Seq, and using scopes to add additional properties to a log, as shown in section 26.5.
 
-## [Chapter 27](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter27)
-* *RecipeApplication* - The Recipe application from previous chapters, updated to demonstrate bundling. Added additional JS and CSS files to demonstrate bundling and minifying, and added *bundleconfig.json*
+## Chapter 27
+*No code samples*
 
 ## [Chapter 28](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter28)
 * *CustomHttpsCertificate* - A basic Razor Pages app using Kestrel with a self-signed certificate, similar to the way you would configure a certificate in production. Shows configuring the default certificate used by Kestrel in _appsettings.json_.
