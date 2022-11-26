@@ -1,7 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.UseDeveloperExceptionPage(); // In development, this is already added by WebApplication
+// In development, this is already added by WebApplication
+// Note: You should NEVER do this in Production as it can leak secrets
+app.UseDeveloperExceptionPage();
 app.MapGet("/", () => BadService.GetValues());
 
 app.Run();
@@ -10,8 +12,6 @@ class BadService
 {
     public static string? GetValues()
     {
-        // Causes a NullReferenceException when run
-        object nullObject = null!;
-        return nullObject.ToString();
+        throw new Exception("Oops, something bad happened!");
     }
 }
