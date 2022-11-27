@@ -6,6 +6,8 @@ builder.Services.AddProblemDetails(); // Add the IProblemDetailsService
 WebApplication app = builder.Build();
 
 // Configure exception and error handlers
+// Normally you would only enable this in Production
+// But for demonstration purposes this is enabled in all environments
 // if(!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler();
