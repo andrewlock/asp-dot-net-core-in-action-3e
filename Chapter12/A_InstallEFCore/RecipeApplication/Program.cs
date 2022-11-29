@@ -37,18 +37,18 @@ public class AppDbContext : DbContext
 public class Recipe
 {
     public int RecipeId { get; set; }
-    public string? Name { get; set; }
+    public required string Name { get; set; }
     public TimeSpan TimeToCook { get; set; }
     public bool IsDeleted { get; set; }
-    public string? Method { get; set; }
-    public ICollection<Ingredient> Ingredients { get; set; }
+    public required string Method { get; set; }
+    public required ICollection<Ingredient> Ingredients { get; set; }
 }
 
 public class Ingredient
 {
     public int IngredientId { get; set; }
     public int RecipeId { get; set; }
-    public string? Name { get; set; }
+    public required string Name { get; set; }
     public decimal Quantity { get; set; }
-    public string? Unit { get; set; }
+    public required string Unit { get; set; }
 }

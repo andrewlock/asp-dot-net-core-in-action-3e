@@ -26,6 +26,7 @@ namespace RecipeApi.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Quantity")
@@ -35,6 +36,7 @@ namespace RecipeApi.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Unit")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("IngredientId");
@@ -60,9 +62,11 @@ namespace RecipeApi.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Method")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<TimeSpan>("TimeToCook")

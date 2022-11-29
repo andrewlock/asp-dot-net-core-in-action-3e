@@ -145,15 +145,17 @@ public class CanManageRecipeFilter : IEndpointFilter
     }
 }
 
+#region Models
 public class EditRecipeBase
 {
     [Required, StringLength(100)]
-    public string? Name { get; set; }
+    public required string Name { get; set; }
     [Range(0, 24), DisplayName("Time to cook (hrs)")]
     public int TimeToCookHrs { get; set; }
     [Range(0, 59), DisplayName("Time to cook (mins)")]
     public int TimeToCookMins { get; set; }
-    public string? Method { get; set; }
+    [Required]
+    public required string Method { get; set; }
     [DisplayName("Vegetarian?")]
     public bool IsVegetarian { get; set; }
     [DisplayName("Vegan?")]
@@ -173,20 +175,19 @@ public class CreateRecipeCommand : EditRecipeBase
             Method = Method,
             IsVegetarian = IsVegetarian,
             IsVegan = IsVegan,
-            Ingredients = Ingredients?.Select(x => x.ToIngredient()).ToList(),
-            LastModified = DateTimeOffset.UtcNow,
             CreatedById = createdBy.Identity?.Name ?? "Unknown",
+            Ingredients = Ingredients.Select(x => x.ToIngredient()).ToList()
         };
     }
 }
 public class CreateIngredientCommand
 {
     [Required, StringLength(100)]
-    public string? Name { get; set; }
+    public required string Name { get; set; }
     [Range(0, int.MaxValue)]
     public decimal Quantity { get; set; }
-    [StringLength(20)]
-    public string? Unit { get; set; }
+    [Required, StringLength(20)]
+    public required string Unit { get; set; }
 
     public Ingredient ToIngredient()
     {
@@ -202,22 +203,23 @@ public class CreateIngredientCommand
 public class RecipeDetailViewModel
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public string Method { get; set; }
+    public required string Name { get; set; }
+    public required string Method { get; set; }
 
-    public IEnumerable<Item> Ingredients { get; set; }
+    public required IEnumerable<Item> Ingredients { get; set; }
 
     public class Item
     {
-        public string Name { get; set; }
-        public string Quantity { get; set; }
+        public required string Name { get; set; }
+        public required string Quantity { get; set; }
     }
 }
+
 public class RecipeSummaryViewModel
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public string TimeToCook { get; set; }
+    public required string Name { get; set; }
+    public required string TimeToCook { get; set; }
     public int NumberOfIngredients { get; set; }
 
     public static RecipeSummaryViewModel FromRecipe(Recipe recipe)
@@ -242,6 +244,7 @@ public class UpdateRecipeCommand : EditRecipeBase
         recipe.Method = Method;
         recipe.IsVegetarian = IsVegetarian;
         recipe.IsVegan = IsVegan;
-        recipe.LastModified = DateTimeOffset.UtcNow;
     }
 }
+
+#endregion
