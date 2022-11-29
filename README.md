@@ -25,7 +25,7 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *BasicRoutingMinimalApi* - 5.2.1 Extracting values from the URL with routing
 * *MultipleVerbMinimalApi* - 5.2.3 Defining route handlers with functions
 * *MultipleVerbMinimalApiWithStatusCodes* - 5.3.1 Returning status codes with Results and TypedResults
-* *MultipleVerbMinimalApiWithProblemDetails* - 5.3.2 Returning useful errors with ProblemDetails
+* *MultipleVerbMinimalApiWithAutoProblemDetails* - 5.3.2 Returning useful errors with ProblemDetails
 * *MinimalApiWithAutoProblemDetails* - 5.3.3 Converting all your responses to Problem Details
 * *MinimalApiFilters* - 5.4 Running common code with endpoint filters
 * *MinimalApiRouteGroups* - 5.5 Organizing your APIs with route groups
