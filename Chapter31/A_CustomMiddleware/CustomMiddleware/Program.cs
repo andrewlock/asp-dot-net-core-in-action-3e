@@ -15,6 +15,7 @@ var app = builder.Build();
 //});
 
 app.UseExceptionHandler();
+app.UseMiddleware<SecurityTxtHandler>();
 
 // Responds to /ping1
 app.Map("/ping1", (IApplicationBuilder branch) =>
@@ -57,12 +58,13 @@ app.Map("/branch", branch =>
 app.UseRouting();
 app.UseAuthorization();
 
-app.MapFallback(() => @"""
+app.MapFallback(() => """
     Try one of the following Map/Run/Use routes:
     /ping1
     /ping2
     /branch (check the response headers for the the X-Content-Type-Options:nosniff header)
     /branch/ping
+    /.well-known/security.txt
     
     Or try one of the following endpoint routes:
     /hello
@@ -121,7 +123,7 @@ public class HeadersMiddleware
 }
 public class VersionMiddleware
 {
-    static readonly string _version = FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetEntryAssembly().Location)!.FileVersion;
+    static readonly string? _version = FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetEntryAssembly()!.Location)?.FileVersion;
     public VersionMiddleware(RequestDelegate next) { }
 
     public async Task Invoke(HttpContext context)
@@ -161,6 +163,27 @@ public class CalculatorMiddleware
 
         context.Response.ContentType = "text/plain";
         await context.Response.WriteAsync($"{a} + {b} = {a + b}");
+    }
+}
+
+public class SecurityTxtHandler
+{
+    private readonly RequestDelegate _next;
+    public SecurityTxtHandler(RequestDelegate next)
+    {
+        _next = next;
+    }
+
+    public Task Invoke(HttpContext context)
+    {
+        var path = context.Request.Path;
+        if(path.StartsWithSegments("/.well-known/security.txt"))
+        {
+            context.Response.ContentType = "text/plain";
+            return context.Response.WriteAsync("Contact: mailto:security@example.com");
+        }
+
+        return _next.Invoke(context);
     }
 }
 
