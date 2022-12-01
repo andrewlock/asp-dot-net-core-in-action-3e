@@ -2,6 +2,17 @@ Book project for ASP.NET Core in Action, Third Edition
 ==============================
 This repository contains the code samples for *ASP.NET Core in Action, Third Edition*
 
+> **Warning**
+> For clarity, this repository uses project names with long names. 
+> This can sometimes cause problems building the samples on Windows if you checkout the repository to a long path, with errors similar to
+> ```bash
+> Error MSB4018: The "GenerateStaticWebAsssetsPropsFile" task failed unexpectedly
+> System.IO.DirectoryNotFoundException: Could not find a part of the path
+> ...
+> ```
+>  Where possible, checkout the repository to a short path, e.g. `C:\repos\asp-dot-net-core-in-action-3e`. 
+> 
+
 ## Chapter 1
 *No code samples*
 
