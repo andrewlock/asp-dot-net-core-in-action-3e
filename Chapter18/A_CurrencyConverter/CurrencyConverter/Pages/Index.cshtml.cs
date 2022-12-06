@@ -19,7 +19,7 @@ namespace CurrencyConverter.Pages
 
         public RedirectToPageResult OnGet()
         {
-            return RedirectToPage("Currency/Convert");
+            return RedirectToPage("Convert");
         }
     }
 }
