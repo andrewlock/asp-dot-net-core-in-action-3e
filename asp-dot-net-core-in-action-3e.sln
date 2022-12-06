@@ -321,9 +321,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "B_BasicWebApiProject", "B_B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicWebApiProject", "Chapter20\B_BasicWebApiProject\BasicWebApiProject\BasicWebApiProject.csproj", "{77BD89B2-37B3-4713-86DE-1FEF45B00811}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C_UsingApiControllerAttribute", "C_UsingApiControllerAttribute", "{03D31B3F-5B83-49B3-986F-80A355BEFC53}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C_ApiControllerAttribute", "C_ApiControllerAttribute", "{03D31B3F-5B83-49B3-986F-80A355BEFC53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingApiControllerAttribute", "Chapter20\C_UsingApiControllerAttribute\UsingApiControllerAttribute\UsingApiControllerAttribute.csproj", "{FD091438-8906-4B76-8F23-9CC363BDF374}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiControllerAttribute", "Chapter20\C_ApiControllerAttribute\ApiControllerAttribute\ApiControllerAttribute.csproj", "{FD091438-8906-4B76-8F23-9CC363BDF374}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "D_ProblemDetailsExample", "D_ProblemDetailsExample", "{5C07A88D-8432-494F-B66B-068B168DBEEF}"
 EndProject

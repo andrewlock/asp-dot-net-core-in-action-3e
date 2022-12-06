@@ -1,4 +1,4 @@
-namespace UsingApiControllerAttribute
+namespace ApiControllerAttribute
 {
     public class WeatherForecast
     {

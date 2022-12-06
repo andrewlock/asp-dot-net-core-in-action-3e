@@ -125,7 +125,7 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 ## [Chapter 20](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter20)
 * *DefaultWebApiProject* - The default Web API project, created using the Visual Studio API template, as in section 20.2.
 * *BasicWebApiProject* - A basic Web API project, returning a list of fruit, as demonstrated in section 20.2.
-* *UsingApiControllerAttribute* - A project containing 2 controllers, demonstrating the additional code required if you don't use the `[ApiController]` attribute, as in section 20.5.
+* *ApiControllerAttribute* - A project containing 2 controllers, demonstrating the additional code required if you don't use the `[ApiController]` attribute, as in section 20.5.
 * *ProblemDetailsExample* - A simple API controller that demonstrates automatically returning a `ValidationProblemDetails` object when the binding model (the `myValue` route parameter) is empty.
 * *CarsWebApi* - A Web API controller that demonstrates generating various different response types. Is configured to allow XML output in Program.cs Use Swagger UI to make requests to the API and view the XML response. Also configured to use the _Newtonsoft.Json_ formatter instead of the _System.Text.Json_ formatter.
 

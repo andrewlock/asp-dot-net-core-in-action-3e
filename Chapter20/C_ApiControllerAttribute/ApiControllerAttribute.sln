@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.32804.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingApiControllerAttribute", "UsingApiControllerAttribute\UsingApiControllerAttribute.csproj", "{2187A08C-E649-41EE-B690-5DA6B386AE70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiControllerAttribute", "ApiControllerAttribute\ApiControllerAttribute.csproj", "{2187A08C-E649-41EE-B690-5DA6B386AE70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
