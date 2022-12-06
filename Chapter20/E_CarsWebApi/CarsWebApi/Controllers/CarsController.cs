@@ -17,7 +17,7 @@ namespace CarsWebApi.Controllers
         /// </summary>
         private static List<Car> Cars = new List<Car> { };
 
-        string _carsAsXml = "<cars><car>Nissan Micra</car><car>FordFocus</car></cars>";
+        string _carsAsXml = "<cars><car>Nissan Micra</car><car>Ford Focus</car></cars>";
 
         [HttpGet("start")]
         [HttpGet("ignition")]
@@ -25,7 +25,7 @@ namespace CarsWebApi.Controllers
         public IEnumerable<string> ListCars()
         {
             return new string[]
-                { "Nissan Micra", "FordFocus" };
+                { "Nissan Micra", "Ford Focus" };
         }
 
         [HttpGet("null")]
@@ -50,7 +50,7 @@ namespace CarsWebApi.Controllers
         public IActionResult ListCarsAsJson()
         {
             return new JsonResult(new string[]
-                { "Nissan Micra", "FordFocus" });
+                { "Nissan Micra", "Ford Focus" });
         }
 
         [HttpPost]
