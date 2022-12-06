@@ -18,19 +18,45 @@ public class ExchangeRatesHostedService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        _logger.LogInformation("Starting update loop");
         while (!stoppingToken.IsCancellationRequested)
         {
-            using (var scope = _provider.CreateScope())
-            {
-                _logger.LogInformation("Fetching latest rates");
-                var client = _provider.GetRequiredService<ExchangeRatesClient>();
-                var latestRates = await client.GetLatestRatesAsync();
-                var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                context.Add(latestRates);
-                await context.SaveChangesAsync();
-                _logger.LogInformation("Latest rates updated");
-            }
             await Task.Delay(_refreshInterval, stoppingToken);
+            await TryUpdateRatesAsync();
+        }
+    }
+
+    public override async Task StartAsync(CancellationToken cancellationToken)
+    {
+        // block until we successfully update rates
+        _logger.LogInformation("Updating initial rates");
+        var success = false;
+        while(!success && !cancellationToken.IsCancellationRequested)
+        {
+            success = await TryUpdateRatesAsync();
+        }
+
+        await base.StartAsync(cancellationToken);
+    }
+
+    private async Task<bool> TryUpdateRatesAsync()
+    {
+        try
+        {
+            using var scope = _provider.CreateScope();
+            _logger.LogInformation("Fetching latest rates");
+            var client = _provider.GetRequiredService<ExchangeRatesClient>();
+            var latestRates = await client.GetLatestRatesAsync();
+            var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            context.Add(latestRates);
+            await context.SaveChangesAsync();
+            _logger.LogInformation("Latest rates updated");
+            return true;
+        }
+        catch(Exception ex)
+        {
+            _logger.LogError(ex, "Error updating rates");
+            return false;
         }
     }
 }
