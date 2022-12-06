@@ -12,8 +12,8 @@ namespace SelectLists.Pages
     public class IndexModel : PageModel
     {
 
-        private static readonly SelectListGroup _dynamicGroup = new SelectListGroup { Name = "Dynamic Languages" };
-        private static readonly SelectListGroup _staticGroup = new SelectListGroup { Name = "Static Languages" };
+        private static readonly SelectListGroup _dynamicGroup = new SelectListGroup { Name = "Dynamic" };
+        private static readonly SelectListGroup _staticGroup = new SelectListGroup { Name = "Static" };
 
         //Remove the Group value from the ItemsWithGroups list items
         public ICollection<SelectListItem> Items => ItemsWithGroups
@@ -26,7 +26,7 @@ namespace SelectLists.Pages
 
         public ICollection<SelectListItem> ItemsWithGroups { get; set; } = new List<SelectListItem>
         {
-           new SelectListItem{Value= "javascript", Text="JavaScript", Group = _dynamicGroup},
+           new SelectListItem{Value= "js", Text="JavaScript", Group = _dynamicGroup},
            new SelectListItem{Value= "cpp", Text="C++", Group = _staticGroup},
            new SelectListItem{Value= "python", Text= "Python", Group = _dynamicGroup},
            new SelectListItem{Value= "csharp", Text="C#"},
