@@ -14,7 +14,7 @@ builder.Host.UseLamar(services =>
     services.Scan(s =>
     {
         // Automatically register services that follow default conventions, e.g.
-        // PurchasingService/IPurchasingService
+        // PurchasingService/IPurchasingService, Concrete types like ConcreteService
         // Typically, you will have a lot of Service/IService pairs in your app
         s.AssemblyContainingType(typeof(Program));
         s.WithDefaultConventions();
@@ -27,9 +27,6 @@ builder.Host.UseLamar(services =>
         s.ConnectImplementationsToTypesClosing(typeof(IValidator<>));
     });
 
-    // ConcreteService (concrete types can always be resolved, but won't be automatically resolved in minimal APIs unless you explicitly add it it)
-    services.Injectable<ConcreteService>();
-        
     // When a ILeaderboard<T> is requested, use Leaderboard<T>
     // Equivalent to:
     // services.AddTransient(typeof(ILeaderboard<>), typeof(Leaderboard<>));
@@ -48,15 +45,15 @@ builder.Host.UseLamar(services =>
 
 var app = builder.Build();
 
-var container = (IContainer)app.Services;
-Console.WriteLine(container.WhatDidIScan());
-Console.WriteLine(container.WhatDoIHave());
+// var container = (IContainer)app.Services;
+// Console.WriteLine(container.WhatDidIScan());
+// Console.WriteLine(container.WhatDoIHave());
 
 app.MapGet("/", (
-    [FromServices] IEnumerable<IGamingService> gamingServices, // [FromServices] is currently required for some services
-    IPurchasingService purchasingService,                      // See https://github.com/JasperFx/lamar/issues/368 for details
+    IEnumerable<IGamingService> gamingServices,
+    IPurchasingService purchasingService,
     IUnitOfWork unitOfWork,
-    [FromServices] ILeaderboard<UserModel> leaderboard,
+    ILeaderboard<UserModel> leaderboard,
     ConcreteService concreteService) => "Hello!");
 
 app.Run();
