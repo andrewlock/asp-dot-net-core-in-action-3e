@@ -149,9 +149,9 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 * *RecipeApplication* - The *RecipeApp_Identity* from chapter 23, with authorization to prevent unauthorized users creating recipes, and resource based authorization to ensure only the user which created a recipe can edit it.
 
 ## [Chapter 25](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter25)
-* *RecipeApi_WithAuthentication* - The recipe API from chapter 12, with added authentication, as described in section 25.3.
-* *RecipeApi_SwaggerAuth* - Extending the recipe API to describe the authorization requirement for OpenAPI and Swagger UI, as described in section 25.5.
-* *RecipeApi_WithAuthorizationPolicies* - Adding additional authorization policies to the CreateRecipe API and management APIs, as described in section 25.6. An endpoint filter is used to apply resource-based authorization to multiple endpoints.
+* *RecipeApi_Auth* - The recipe API from chapter 12, with added authentication, as described in section 25.3.
+* *RecipeApi_Swagger* - Extending the recipe API to describe the authorization requirement for OpenAPI and Swagger UI, as described in section 25.5.
+* *RecipeApi_Authorization* - Adding additional authorization policies to the CreateRecipe API and management APIs, as described in section 25.6. An endpoint filter is used to apply resource-based authorization to multiple endpoints.
 
 ## [Chapter 26](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter26)
 * *RecipeApplication* - The recipe application from previous chapters with some additional logging added to some Razor Pages.
