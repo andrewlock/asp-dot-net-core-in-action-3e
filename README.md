@@ -146,7 +146,7 @@ This repository contains the code samples for *ASP.NET Core in Action, Third Edi
 
 ## [Chapter 24](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter24)
 * *Airport* - An analogy to the airport example presented in section 24.1. There are 4 steps, Home Page, Through security, Enter airport lounge, Board the plane. You can set the claims for a user when you register. Which claims you add will determine how far through the airport you can get.
-* *RecipeApplication* - The *RecipeApplication_WithIdentity* from chapter 23, with authorization to prevent unauthorized users creating recipes, and resource based authorization to ensure only the user which created a recipe can edit it.
+* *RecipeApplication* - The *RecipeApp_Identity* from chapter 23, with authorization to prevent unauthorized users creating recipes, and resource based authorization to ensure only the user which created a recipe can edit it.
 
 ## [Chapter 25](https://github.com/andrewlock/asp-dot-net-core-in-action-3e/tree/main/Chapter25)
 * *RecipeApi_WithAuthentication* - The recipe API from chapter 12, with added authentication, as described in section 25.3.
