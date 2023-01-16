@@ -11,8 +11,8 @@ namespace CurrencyConverter
             _allowedCodes = allowedCodes;
         }
 
-        protected override ValidationResult IsValid(
-            object value,
+        protected override ValidationResult? IsValid(
+            object? value,
             ValidationContext validationContext)
         {
             var code = value as string;

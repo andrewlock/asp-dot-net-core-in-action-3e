@@ -6,8 +6,8 @@ namespace CurrencyConverter
 {
     public class CurrencyCodeWithDiAttribute : ValidationAttribute
     {
-        protected override ValidationResult IsValid(
-            object value, ValidationContext context)
+        protected override ValidationResult? IsValid(
+            object? value, ValidationContext context)
         {
             var code = value as string;
             var provider = context.GetRequiredService<ICurrencyProvider>();
