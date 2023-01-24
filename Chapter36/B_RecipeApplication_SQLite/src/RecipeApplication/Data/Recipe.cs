@@ -13,5 +13,5 @@ public class Recipe
     public required string CreatedById { get; set; }
 
 
-    public required ICollection<Ingredient> Ingredients { get; set; }
+    public ICollection<Ingredient> Ingredients { get; set; } = null!;
 }
