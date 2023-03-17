@@ -1,4 +1,4 @@
-namespace ApiControllerAttribute
+namespace ApiControllerAttributeExample
 {
     public class WeatherForecast
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiControllerAttribute.Controllers
+namespace ApiControllerAttributeExample.Controllers
 {
 
     [Route("[controller]")]
