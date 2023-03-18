@@ -18,9 +18,9 @@ app.MapGet("/display-settings", (IOptions<AppDisplaySettings> opts) => opts.Valu
 // Don't favour this approach
 app.MapGet("/display-settings-alt", (IConfiguration config) => new
 {
-    title = config["AppDisplaySettings:AppTitle"],
+    title = config["AppDisplaySettings:Title"],
     showCopyright = bool.Parse(
-        config["AppDisplaySettings:ShowCopyright"]),
+        config["AppDisplaySettings:ShowCopyright"]!),
 });
 
 app.Run();
@@ -43,6 +43,6 @@ class Store
 }
 class AppDisplaySettings
 {
-    public string AppTitle { get; set; }
+    public string Title { get; set; }
     public bool ShowCopyright { get; set; }
 }
