@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.CodeAnalysis;
-using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 //    o.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
 //    o.SerializerOptions.PropertyNameCaseInsensitive = true;
 //});
+
 var app = builder.Build();
 
 app.MapGet("/", () => @"
@@ -58,7 +58,7 @@ app.MapGet("/products/{id?}", (int? id) => $"Received {id}");
 // /products?id=456
 app.MapGet("/products", (int id) => $"Received {id}");
 
-// Specifically define where parameters 
+// Specifically define where parameters will be bound from
 // The following request will have id = 123, page = 2
 // page size must be sent as a header value using e.g. PostMan
 // /products/123/page?paged=2
@@ -67,7 +67,6 @@ app.MapGet("/products/{id}/paged",
      [FromQuery] int page,
      [FromHeader(Name = "PageSize")] int pageSize)
      => $"Received id {id}, page {page}, pageSize {pageSize}");
-
 
 // ProductId contains a TryParse method, so it is treated as a simple type
 // and is bound to the route parameter
@@ -115,7 +114,7 @@ app.MapGet("/stock2", (int? id) => $"Received {id}");
 // product binds to the body. If there is no request body, or it contains the value "null"
 // then product will be null
 // Use postman to send a POST request to /stock:
-app.MapPost("/stock", (Product product) => $"Received {product}");
+app.MapPost("/stock", (Product? product) => $"Received {product}");
 
 // Alternatively to optional values, you can use a default values.
 // Note that you can't use default values with Lambdas, so using a local function instead
@@ -123,6 +122,7 @@ app.MapPost("/stock", (Product product) => $"Received {product}");
 // /stock3
 // /stock3?id=123
 string StockWithDefaultValue(int id = 0) => $"Received {id}";
+
 app.MapGet("/stock3", StockWithDefaultValue);
 
 // Accessing well-known types
@@ -130,14 +130,14 @@ app.MapGet("/well-known", (HttpContext httpContext) => httpContext.Response.Writ
 
 // Using services
 // The LinkGenerator is registered in the DI container so it can be used as a parameter
-app.MapGet("/links", ([FromServices] LinkGenerator links) => $"The Links API can be found at{links.GetPathByName("LinksApi")}")
+app.MapGet("/links", ([FromServices] LinkGenerator links) => $"The Links API can be found at {links.GetPathByName("LinksApi")}")
     .WithName("LinksApi");
 
 // Using custom binding with BindAsync
 // Send a post request to PostMan at /sizes with a body like:
 // 1.234
 // 2.3455
-app.MapPost("/sizes", (SizeDetails? size) => $"Received {size}");
+app.MapPost("/sizes", (SizeDetails size) => $"Received {size}");
 
 // Using [AsParameters]
 app.MapGet("/category/{id}", ([AsParameters] SearchModel model) => $"Received {model}");
@@ -146,12 +146,12 @@ app.Run();
 
 record Product(int Id, string Name, int Stock);
 
-readonly record struct ProductId(int Id) 
+readonly record struct ProductId(int Id)
     : IParsable<ProductId>
 {
     public static bool TryParse([NotNullWhen(true)] string? s, IFormatProvider? provider, out ProductId result)
     {
-        if(s is not null
+        if (s is not null
             && s.StartsWith('p')
             && int.TryParse(s.AsSpan().Slice(1), out var id))
         {
@@ -165,7 +165,7 @@ readonly record struct ProductId(int Id)
 
     static ProductId IParsable<ProductId>.Parse(string s, IFormatProvider? provider)
     {
-        if(TryParse(s, provider, out var result))
+        if (TryParse(s, provider, out var result))
         {
             return result;
         }
@@ -174,12 +174,12 @@ readonly record struct ProductId(int Id)
     }
 }
 
-record SizeDetails(double height, double width)
+record SizeDetails(double Height, double Width)
 {
     public static async ValueTask<SizeDetails?> BindAsync(HttpContext context)
     {
         using var sr = new StreamReader(context.Request.Body);
-        
+
         var line1 = await sr.ReadLineAsync(context.RequestAborted);
         if (line1 is null)
         {
@@ -199,7 +199,7 @@ record SizeDetails(double height, double width)
 }
 
 record struct SearchModel(
-    int id, 
-    int page, 
-    [FromHeader(Name = "sort")] bool? sortAsc,
-    [FromQuery(Name = "q")] string search);
+    int Id,
+    int Page,
+    [FromHeader(Name = "sort")] bool? SortAsc,
+    [FromQuery(Name = "q")] string Search);
