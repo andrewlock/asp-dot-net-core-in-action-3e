@@ -1,14 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Optional customization of serialization
 // Make sure to update your JSON posts if you change the naming policy
-//builder.Services.ConfigureHttpJsonOptions(o => {
+//builder.Services.ConfigureHttpJsonOptions(o =>
+//{
 //    o.SerializerOptions.AllowTrailingCommas = true;
 //    o.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
 //    o.SerializerOptions.PropertyNameCaseInsensitive = true;
+//});
+//OR
+//builder.Services.Configure<JsonOptions>(o =>
+//{
+//    o.JsonSerializerOptions.AllowTrailingCommas = true;
+//    o.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+//    o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
 //});
 
 var app = builder.Build();
