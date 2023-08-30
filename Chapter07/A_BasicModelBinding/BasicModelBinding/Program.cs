@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Optional customization of serialization
 // Make sure to update your JSON posts if you change the naming policy
-//builder.Services.ConfigureRouteHandlerJsonOptions(o => {
+//builder.Services.ConfigureHttpJsonOptions(o => {
 //    o.SerializerOptions.AllowTrailingCommas = true;
 //    o.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
 //    o.SerializerOptions.PropertyNameCaseInsensitive = true;
