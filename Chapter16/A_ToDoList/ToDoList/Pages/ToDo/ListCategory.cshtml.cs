@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
 
 namespace ToDoList.Pages.ToDo
 {
     public class ListCategoryModel : PageModel
     {
         private readonly ToDoService _service;
+
         public ListCategoryModel(ToDoService service)
         {
             _service = service;
@@ -28,9 +25,9 @@ namespace ToDoList.Pages.ToDo
             //TODO: Validate the parameters
             Tasks = _service.GetToDoItems(Input.Category, Input.Username)
                 .Select(x => new Task(x.Number, x.Title));
+
             return Page();
         }
-
 
         public class InputModel
         {
@@ -50,6 +47,7 @@ namespace ToDoList.Pages.ToDo
             }
 
             public int Id { get; }
+
             public string Description { get; set; }
         }
     }
