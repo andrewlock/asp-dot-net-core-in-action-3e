@@ -62,9 +62,9 @@ public class RecipeServiceTests
             var userId = "123";
             context.Add(new ApplicationUser { Id = userId });
             context.Recipes.AddRange(
-                new Recipe { RecipeId = 1, Name = "Recipe1", Method = "TBD", CreatedById = userId },
-                new Recipe { RecipeId = 2, Name = "Recipe2", Method = "TBD", CreatedById = userId },
-                new Recipe { RecipeId = 3, Name = "Recipe3", Method = "TBD", CreatedById = userId });
+                new Recipe { RecipeId = 1, Name = "Recipe1", Method = "TBD", CreatedById = userId, LastModified = DateTime.UtcNow },
+                new Recipe { RecipeId = 2, Name = "Recipe2", Method = "TBD", CreatedById = userId, LastModified = DateTime.UtcNow },
+                new Recipe { RecipeId = 3, Name = "Recipe3", Method = "TBD", CreatedById = userId, LastModified = DateTime.UtcNow });
             await context.SaveChangesAsync();
         }
 
@@ -100,9 +100,9 @@ public class RecipeServiceTests
             context.Database.EnsureCreated();
             var userId = "123";
             context.Add(new ApplicationUser { Id = userId });
-            context.Recipes.Add(new Recipe { RecipeId = 1, Name = "Recipe1", CreatedById = userId, Method = "TBD" });
-            context.Recipes.Add(new Recipe { RecipeId = 2, Name = recipeName, CreatedById = userId, Method = "TBD", IsDeleted = true });
-            context.Recipes.Add(new Recipe { RecipeId = 3, Name = "Recipe3", CreatedById = userId, Method = "TBD" });
+            context.Recipes.Add(new Recipe { RecipeId = 1, Name = "Recipe1", CreatedById = userId, Method = "TBD", LastModified = DateTime.UtcNow });
+            context.Recipes.Add(new Recipe { RecipeId = 2, Name = recipeName, CreatedById = userId, Method = "TBD", IsDeleted = true, LastModified = DateTime.UtcNow });
+            context.Recipes.Add(new Recipe { RecipeId = 3, Name = "Recipe3", CreatedById = userId, Method = "TBD", LastModified = DateTime.UtcNow });
             await context.SaveChangesAsync();
         }
 
